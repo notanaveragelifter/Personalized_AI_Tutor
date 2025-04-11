@@ -55,3 +55,37 @@ Personalized_AI_Tutor/
 ---
 
 
+---
+
+## ✨ Key Features
+
+### 📽 AI Video Generation
+- Personalized motivational videos for each student
+- Avatar-driven engagement using **Gan.ai**
+
+### 🎯 React Frontend
+- Animated progress circle
+- Real-time form validation
+- Weekly deadline tracker
+- Sends student data to backend
+
+### 🚀 FastAPI Backend
+- Handles secure POST requests
+- Communicates with Gan.ai's API
+- Returns video status and check link
+
+---
+
+## ⚙️ Installation & Setup
+
+### 🐍 Backend (FastAPI)
+
+```bash
+cd app
+python3 -m venv venv
+source venv/bin/activate
+pip install -r ../requirements.txt
+uvicorn main:app --reload
+
+
+
