@@ -33,28 +33,6 @@ Personalized_AI_Tutor/
 └── README.md                # 📖 Project documentation
 ```
 
----
-
-## ✨ Features
-
-### 📽 AI Video Generation (Backend)
-- Generates personalized motivational videos using [Gan.ai](https://gan.ai)
-- Accepts student data and video details via POST requests
-- Returns unique `inference_id` for tracking video generation
-
-### 🌐 React Frontend
-- Clean UI with form to collect student progress
-- Animated progress indicator
-- Real-time validation and submission
-- Interacts with backend via REST API
-
-### 🔒 Security
-- API tokens managed securely via `.env` files
-- `.env` excluded from version control using `.gitignore`
-
----
-
-
 ## ✨ Key Features
 
 ### 📽 AI Video Generation
