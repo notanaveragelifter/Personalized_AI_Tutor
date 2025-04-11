@@ -33,13 +33,6 @@ Personalized_AI_Tutor/
 └── README.md                # 📖 Project documentation
 ```
 
-
-yaml
-Copy
-Edit
-
----
-
 ---
 
 ## ✨ Features
