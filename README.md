@@ -15,7 +15,26 @@ A full-stack AI-powered EdTech platform that generates **personalized motivation
 
 ## 📁 Project Structure
 
-Personalized_AI_Tutor/ ├── app/ # FastAPI backend │ ├── main.py │ └── video_generator.py ├── my-app/ # React frontend │ ├── public/ │ └── src/ │ ├── App.js │ └── components/ ├── venv/ # Python virtual environment ├── .env # API tokens and secrets (not shared) ├── .gitignore ├── requirements.txt # Backend Python dependencies └── README.md
+## 📁 Project Structure
+
+```
+Personalized_AI_Tutor/
+├── app/                     # ⚙️ FastAPI backend
+│   └── main.py              # Entry point for backend and video generation logic
+│
+├── my-app/                  # 🌐 React frontend
+│   ├── public/              # Static assets (favicon, index.html, etc.)
+│   └── src/                 # Frontend source code
+│       ├── App.js           # Main React component
+│       └── components/      # Reusable UI components
+│
+├── venv/                    # 🐍 Python virtual environment (not pushed to Git)
+├── .env                     # 🔐 API tokens and secrets (excluded via .gitignore)
+├── .gitignore               # 🚫 Ignore rules for Git
+├── requirements.txt         # 📦 Backend Python dependencies
+└── README.md                # 📖 Project documentation
+```
+
 
 yaml
 Copy
