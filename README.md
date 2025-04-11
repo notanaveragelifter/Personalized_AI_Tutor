@@ -40,49 +40,63 @@ Edit
 
 ---
 
-## ⚙️ Backend Setup (FastAPI)
+⚙️ Backend Setup (FastAPI)
+🔧 Installation
+Create and activate a virtual environment:
 
-### 🔧 Installation
+bash
 
-```bash
-# Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate      # or venv\Scripts\activate on Windows
+source venv/bin/activate      # Use `venv\Scripts\activate` on Windows
+Install backend dependencies: Create a requirements.txt file with the following content:
 
-# Install backend dependencies
-pip install -r requirements.txt
-requirements.txt
 txt
-Copy
-Edit
+
 fastapi
 uvicorn
 pydantic
 requests
 python-dotenv
-▶️ Run Backend
+Then install them using pip:
+
 bash
-Copy
-Edit
+
+pip install -r requirements.txt
+▶️ Run the Backend
+Navigate into the app directory and start the server:
+
+bash
+
 cd app
 uvicorn main:app --reload
-Local server: http://127.0.0.1:8000
+Local API Server: http://127.0.0.1:8000
 
-Swagger API docs: http://127.0.0.1:8000/docs
+Swagger API Docs: http://127.0.0.1:8000/docs
 
 🌐 Frontend Setup (React)
+📦 Installation
+Go into the frontend directory:
+
 bash
-Copy
-Edit
+
 cd my-app
+Install frontend dependencies:
+
+bash
+
 npm install
-npm run dev     # or npm start if using Create React App
-Local frontend: http://localhost:3000
+Start the development server:
 
-📡 API: Generate Video (POST /generate-video/)
-Sends student data to Gan.ai and initiates video generation.
+bash
 
-📨 Request Body
+npm run dev     # or use `npm start` for Create React App
+Local Frontend: http://localhost:3000
+
+📡 API Overview
+🔁 Generate Video – POST /generate-video/
+Sends student progress data to Gan.ai to initiate personalized video generation.
+
+📨 Request Body (JSON)
 json
 Copy
 Edit
@@ -94,7 +108,7 @@ Edit
   "deadline": "Friday",
   "token": "static_token"
 }
-✅ Response
+✅ Sample Response
 json
 Copy
 Edit
@@ -105,79 +119,36 @@ Edit
   "check_status_url": "/check-status/abc123xyz",
   "raw_response": { ... }
 }
-📺 Video Playback:
-Log into your Gan.ai dashboard to view, download, or share generated videos.
+📺 Video Playback
+Log into your Gan.ai Dashboard to view, download, or share the generated videos.
 
 ✨ Key Features
 📽 AI Video Generation
-Personalized motivational videos for each student
+Personalized motivational videos based on student progress.
 
-Avatar-driven engagement using Gan.ai
+Avatar-based engagement using Gan.ai.
 
 🎯 React Frontend
-Animated progress circle
+Animated progress visualization.
 
-Real-time validation
+Real-time form validation.
 
-Weekly status tracker
+Weekly update tracker UI.
 
-Sends student data to backend
+Sends form data to the backend API.
 
 🚀 FastAPI Backend
-Handles secure POST requests
+Handles secure POST requests.
 
-Communicates with Gan.ai
+Integrates with Gan.ai for video generation.
 
-Returns video generation status and ID
+Returns video inference ID and status.
 
 📄 .env File (Example)
+Place in the root of your backend project.
+
 env
 Copy
 Edit
 GAN_API_TOKEN=your_gan_api_token
-🔒 Keep this file private. Add .env to .gitignore.
-
-🛠 YAML Summary (for docs)
-yaml
-Copy
-Edit
-project: Personalized AI Tutor
-frontend:
-  tech: React
-  features:
-    - Form UI for progress
-    - Progress circle
-    - Deadline tracker
-    - POST request to backend
-backend:
-  tech: FastAPI
-  dependencies:
-    - fastapi
-    - uvicorn
-    - requests
-    - pydantic
-    - dotenv
-api:
-  POST /generate-video/:
-    request:
-      avatar_id: string
-      title: string
-      name: string
-      progress: int
-      deadline: string
-      token: string
-    response:
-      message: string
-      inference_id: string
-      status: string
-      check_status_url: string
-🔮 Future Enhancements
-📧 Email video delivery with congratulatory messages
-
-📲 SMS/WhatsApp alerts when videos are ready
-
-📊 Admin dashboard for tutors
-
-🧠 More avatars and tone customization
-
-🔐 OAuth login system for students
+🔒 Note: Keep this file private. Add .env to .gitignore.
