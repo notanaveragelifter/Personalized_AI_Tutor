@@ -15,7 +15,7 @@ A full-stack AI-powered EdTech platform that generates **personalized motivation
 
 ## 📘 Full Project Documentation
 
-To get started quickly and understand the full capabilities of this project, check out the [official documentation (PDF)](https://drive.google.com/file/d/1q_q0DN__qab6FWbwY3Rw_NhAg16l39_t/view?usp=sharing).
+To get started quickly and run it on your local device, check out the [official documentation (PDF)](https://drive.google.com/file/d/1q_q0DN__qab6FWbwY3Rw_NhAg16l39_t/view?usp=sharing).
 
 ---
 
