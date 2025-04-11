@@ -15,9 +15,6 @@ A full-stack AI-powered EdTech platform that generates **personalized motivation
 
 ## 📁 Project Structure
 
-## 📁 Project Structure
-
-```
 Personalized_AI_Tutor/
 ├── app/                     # ⚙️ FastAPI backend
 │   └── main.py              # Entry point for backend and video generation logic
