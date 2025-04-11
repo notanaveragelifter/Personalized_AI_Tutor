@@ -54,26 +54,28 @@ Personalized_AI_Tutor/
 
 ---
 
-## ⚙️ Installation & Setup
-
-### 🐍 Backend (FastAPI)
-
-```bash
+⚙️ Installation & Setup
+🐍 Backend (FastAPI)
+bash
+Copy
+Edit
 cd app
 python3 -m venv venv
 source venv/bin/activate
 pip install -r ../requirements.txt
 uvicorn main:app --reload
+The backend server will start at http://localhost:8000
 
-### 🌐 Frontend (React)
-
+🌐 Frontend (React)
 bash
 Copy
 Edit
 cd my-app
 npm install
 npm start
-Make sure your backend runs on http://localhost:8000 and frontend on http://localhost:3000.
+The frontend will run at http://localhost:3000
+
+Make sure both servers are running in parallel for full functionality. The frontend communicates with the backend via HTTP requests to generate videos.
 
 📡 API Documentation
 Endpoint: POST /generate-video/
@@ -101,14 +103,6 @@ Edit
   "status": "in_progress",
   "check_status_url": "https://dashboard.gan.ai/video/abc123xyz"
 }
-📄 .env Configuration
-Create a .env file in the root:
-
-env
-Copy
-Edit
-GAN_API_TOKEN=your_gan_api_token_here
-🔒 Do NOT share this file. It should remain private and is already listed in .gitignore.
 
 🔧 Tech Stack
 Layer	Tech Used
