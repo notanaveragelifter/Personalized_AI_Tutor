@@ -55,8 +55,6 @@ Personalized_AI_Tutor/
 ---
 
 
----
-
 ## ✨ Key Features
 
 ### 📽 AI Video Generation
@@ -86,6 +84,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r ../requirements.txt
 uvicorn main:app --reload
+
 
 
 
