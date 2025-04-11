@@ -39,118 +39,172 @@ Copy
 Edit
 
 ---
-## ⚙️ Backend Setup (FastAPI)
 
-### 🔧 Installation
+---
 
-Create and activate a virtual environment:
+## ✨ Features
+
+### 📽 AI Video Generation (Backend)
+- Generates personalized motivational videos using [Gan.ai](https://gan.ai)
+- Accepts student data and video details via POST requests
+- Returns unique `inference_id` for tracking video generation
+
+### 🌐 React Frontend
+- Clean UI with form to collect student progress
+- Animated progress indicator
+- Real-time validation and submission
+- Interacts with backend via REST API
+
+### 🔒 Security
+- API tokens managed securely via `.env` files
+- `.env` excluded from version control using `.gitignore`
+
+---
+
+## ⚙️ Installation & Setup
+
+### 🐍 Backend (FastAPI)
 
 ```bash
-python -m venv venv
-source venv/bin/activate        # For Windows: venv\Scripts\activate
-Create a requirements.txt file:
-
-txt
-Copy
-Edit
-fastapi
-uvicorn
-pydantic
-requests
-python-dotenv
-Install dependencies:
-
-bash
-Copy
-Edit
-pip install -r requirements.txt
-▶️ Run the Backend
-Start the backend server:
-
-bash
-Copy
-Edit
 cd app
+python3 -m venv venv
+source venv/bin/activate
+pip install -r ../requirements.txt
 uvicorn main:app --reload
-API is now available at:
-
-Local API Server: http://127.0.0.1:8000
-
-Swagger Docs: http://127.0.0.1:8000/docs
-
-🌐 Frontend Setup (React)
-📦 Installation
-Navigate to the React app folder:
-
+🌐 Frontend (React)
 bash
 Copy
 Edit
 cd my-app
-Install frontend dependencies:
-
-bash
-Copy
-Edit
 npm install
-Start the frontend development server:
+npm start
+Make sure your backend runs on http://localhost:8000 and frontend on http://localhost:3000.
 
-bash
-Copy
-Edit
-npm run dev       # or use `npm start` for Create React App
-Frontend is now available at:
+📡 API Documentation
+Endpoint: POST /generate-video/
+Request JSON:
 
-http://localhost:3000
-
-📡 API: Generate Video (POST /generate-video/)
-Sends student progress data to Gan.ai to generate a personalized video.
-
-📨 Request Body
 json
 Copy
 Edit
 {
-  "avatar_id": "8c134b8e-eba2-48e7-a648-8bf4458a517d",
-  "title": "Week 5 Update",
-  "name": "Sarla",
-  "progress": 67,
-  "deadline": "Friday",
-  "token": "static_token"
+  "avatar_id": "avatar123",
+  "title": "Keep Going!",
+  "name": "Ajeet",
+  "progress": 78,
+  "deadline": "2025-04-30",
+  "token": "your_gan_api_token"
 }
-✅ Sample Response
+Success Response:
+
 json
 Copy
 Edit
 {
-  "message": "Video generation started",
+  "message": "Video generation started!",
   "inference_id": "abc123xyz",
-  "status": "processing",
-  "check_status_url": "/check-status/abc123xyz",
-  "raw_response": {
-    "details": "..."
-  }
+  "status": "in_progress",
+  "check_status_url": "https://dashboard.gan.ai/video/abc123xyz"
 }
-📺 Video Playback
-Log into your Gan.ai dashboard to view, download, or share the generated videos.
+📄 .env Configuration
+Create a .env file in the root:
 
-✨ Key Features
-📽 AI Video Generation
-Personalized motivational videos
+env
+Copy
+Edit
+GAN_API_TOKEN=your_gan_api_token_here
+🔒 Do NOT share this file. It should remain private and is already listed in .gitignore.
 
-Avatar-based engagement using Gan.ai
+🔧 Tech Stack
+Layer	Tech Used
+Frontend	React, HTML/CSS
+Backend	FastAPI, Python
+Deployment	Localhost / Gan.ai
+API	Gan.ai Video API
+State Mgmt	React useState
+🛠 Sample Code
+🔁 React Form Submission
+jsx
+Copy
+Edit
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const response = await axios.post('http://localhost:8000/generate-video/', {
+    avatar_id: "avatar123",
+    title: "Great job!",
+    name: "Student Name",
+    progress: 85,
+    deadline: "2025-04-30",
+    token: process.env.REACT_APP_GAN_API_TOKEN
+  });
+  console.log(response.data);
+};
+🔗 FastAPI Endpoint
+python
+Copy
+Edit
+@app.post("/generate-video/")
+def generate_video(data: VideoRequest):
+    headers = {"Authorization": f"Bearer {GAN_API_TOKEN}"}
+    payload = data.dict(exclude={"token"})
+    response = requests.post("https://api.gan.ai/video", json=payload, headers=headers)
+    return response.json()
+🗂 YAML Reference (for documentation)
+yaml
+Copy
+Edit
+project: Personalized AI Tutor
+frontend:
+  tech: React
+  features:
+    - Form UI for progress
+    - Progress circle
+    - Deadline tracker
+    - POST request to backend
+backend:
+  tech: FastAPI
+  dependencies:
+    - fastapi
+    - uvicorn
+    - requests
+    - pydantic
+    - python-dotenv
+api:
+  POST /generate-video/:
+    request:
+      avatar_id: string
+      title: string
+      name: string
+      progress: int
+      deadline: string
+      token: string
+    response:
+      message: string
+      inference_id: string
+      status: string
+      check_status_url: string
+🔮 Future Enhancements
+📧 Email delivery of videos
 
-🎯 React Frontend
-Animated progress circle
+📲 WhatsApp/SMS notifications when videos are ready
 
-Real-time form validation
+📊 Admin dashboard for tutors to monitor student progress
 
-Weekly status update UI
+🧠 More avatars and tone customization options
 
-Sends student data to backend API
+🔐 OAuth login for students
 
-🚀 FastAPI Backend
-Handles secure POST requests
+🙌 Contribution
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-Communicates with Gan.ai API
+📜 License
+MIT © 2025 — Built with ❤️ by Ajeet Singh
 
+yaml
+Copy
+Edit
+
+---
+
+Let me know if you want this customized for **deployment on Vercel/Render**, **Dockerized**, or **with
 
